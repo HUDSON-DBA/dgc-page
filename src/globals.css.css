@@ -1,0 +1,145 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+  Sistema de Design: Tokens para Análise de Crédito
+
+  Filosofia do Design System:
+  Este sistema de design é construído sobre uma base de tokens HSL (Hue, Saturation, Lightness)
+  para flexibilidade e facilidade de ajuste. Ele define uma hierarquia clara de cores,
+  tipografia e espaçamento para garantir consistência visual e acessibilidade em toda a aplicação.
+
+  - Cores Globais: Cores fundamentais que definem a aparência geral da interface (fundo e texto principal).
+  - Cores de Superfície: Aplicadas em elementos que atuam como "superfícies" na interface (cards, popovers),
+    distinguindo-se do fundo principal.
+  - Cores Semânticas: Representam a identidade da marca (primária), elementos complementares (secundária),
+    elementos de baixo contraste (muted) e elementos de destaque visual (accent), além de ações destrutivas.
+  - Cores de Status: Fornecem feedback visual sobre o estado de algo (sucesso, aviso, perigo, informação).
+    Cada cor de status possui variantes para texto e fundos mais claros, otimizadas para legibilidade.
+  - Cores de Utilidade: Tokens para elementos funcionais como bordas, inputs e anéis de foco.
+  - Tipografia: Define o tamanho de fonte base para a aplicação.
+  - Espaçamento e Arredondamento: Tokens para espaçamento padrão e raios de borda, promovendo consistência no layout.
+  - Cores Específicas de Componentes: Para elementos que demandam um tema único, como uma barra lateral (sidebar),
+    garantindo que se diferenciem das cores semânticas gerais quando necessário, mas mantendo a coerência.
+*/
+
+@layer base {
+  :root {
+    /* Cores Globais (Tema Claro) - Otimizadas para contraste e harmonia */
+    --background: 0 0% 100%; /* Fundo branco puro */
+    --foreground: 222 47% 11%; /* Preto acinzentado para texto principal */
+
+    /* Cores de Superfície */
+    --card: 0 0% 100%; /* Fundo branco para cards */
+    --card-foreground: 222 47% 11%; /* Texto preto acinzentado em cards */
+    --popover: 0 0% 100%; /* Fundo branco para popovers */
+    --popover-foreground: 222 47% 11%; /* Texto preto acinzentado em popovers */
+
+    /* Cores Semânticas */
+    --primary: 220 78% 49%; /* Azul vibrante para branding e ações principais */
+    --primary-foreground: 0 0% 100%; /* Texto branco em primary */
+    --secondary: 210 40% 96%; /* Cinza claro para elementos secundários */
+    --secondary-foreground: 222 47% 11%; /* Texto preto acinzentado em secondary */
+    --muted: 210 40% 96%; /* Cinza claro suave para elementos de fundo/menos proeminentes */
+    --muted-foreground: 215 16% 47%; /* Cinza médio para texto muted */
+    --accent: 210 40% 96%; /* Cinza claro para fundos de destaque/hover */
+    --accent-foreground: 222 47% 11%; /* Texto preto acinzentado em accent */
+    --destructive: 0 84% 60%; /* Vermelho forte para ações destrutivas */
+    --destructive-foreground: 0 0% 100%; /* Texto branco em destructive */
+
+    /* Cores de Status - Usam uma paleta mais específica e brilhante para feedback claro */
+    --success: 142 71% 45%; /* Verde para sucesso/aprovado */
+    --success-foreground: 0 0% 100%; /* Texto branco em success */
+    --success-light: 142 71% 85%; /* Verde mais claro para fundos de sucesso (ex: badge) */
+
+    --warning: 38 92% 50%; /* Laranja para aviso/pendente */
+    --warning-foreground: 0 0% 100%; /* Texto branco em warning */
+    --warning-light: 38 92% 80%; /* Laranja mais claro para fundos de aviso (ex: badge) */
+
+    --danger: 0 84% 60%; /* Vermelho para erro/rejeitado (mesmo que destructive para consistência) */
+    --danger-foreground: 0 0% 100%; /* Texto branco em danger */
+    --danger-light: 0 84% 80%; /* Vermelho mais claro para fundos de perigo (ex: badge) */
+
+    --info: 199 89% 48%; /* Azul ciano para informações gerais */
+    --info-foreground: 0 0% 100%; /* Texto branco em info */
+    --info-light: 199 89% 80%; /* Azul ciano mais claro para fundos de informação (ex: badge) */
+
+    /* Cores de Utilidade */
+    --border: 214 32% 91%; /* Cinza para bordas */
+    --input: 210 40% 96%; /* Cinza claro para inputs */
+    --ring: 212 27% 84%; /* Azul acinzentado para anéis de foco (usabilidade) */
+
+    /* Tipografia e Espaçamento */
+    --radius: 0.5rem; /* Raio de borda padrão (1/2 rem) */
+    --font-size-base: 1rem; /* Tamanho de fonte base para a aplicação */
+
+    /* Cores Específicas de Componente: Sidebar (Tema Claro) */
+    --sidebar-bg: 210 40% 98%; /* Fundo claro da sidebar */
+    --sidebar-text: 222 47% 11%; /* Texto escuro da sidebar */
+    --sidebar-active-item-bg: 220 78% 49%; /* Fundo do item ativo (usa primary) */
+    --sidebar-active-item-text: 0 0% 100%; /* Texto branco do item ativo */
+    --sidebar-hover-bg: 210 40% 92%; /* Fundo de hover mais claro */
+    --sidebar-hover-text: 222 47% 11%; /* Texto de hover escuro */
+    --sidebar-border-color: 214 32% 91%; /* Borda da sidebar */
+    --sidebar-focus-ring: 212 27% 84%; /* Anel de foco da sidebar */
+  }
+
+  /* Tema Escuro - Valores HSL otimizados para contraste e conforto visual */
+  /* Definir todas as variáveis para garantir a completude do tema escuro */
+  .dark {
+    /* Cores Globais */
+    --background: 222 47% 11%; /* Fundo muito escuro */
+    --foreground: 0 0% 100%; /* Texto branco puro */
+
+    /* Cores de Superfície */
+    --card: 222 47% 11%; /* Fundo escuro para cards */
+    --card-foreground: 0 0% 100%; /* Texto branco em cards */
+    --popover: 222 47% 11%; /* Fundo escuro para popovers */
+    --popover-foreground: 0 0% 100%; /* Texto branco em popovers */
+
+    /* Cores Semânticas */
+    --primary: 210 40% 98%; /* Cor clara para branding/ações primárias em dark mode */
+    --primary-foreground: 222 47% 11%; /* Texto escuro em primary */
+    --secondary: 217 32% 17%; /* Cinza mais escuro para elementos secundários */
+    --secondary-foreground: 0 0% 100%; /* Texto branco em secondary */
+    --muted: 217 32% 17%; /* Fundo muted escuro */
+    --muted-foreground: 215 16% 65%; /* Texto cinza médio para elementos muted */
+    --accent: 217 32% 17%; /* Fundo de destaque escuro */
+    --accent-foreground: 0 0% 100%; /* Texto branco em accent */
+    --destructive: 0 62% 30%; /* Vermelho mais escuro para ações destrutivas */
+    --destructive-foreground: 0 0% 100%; /* Texto branco em destructive */
+
+    /* Cores de Status */
+    --success: 142 71% 45%; /* Verde para sucesso (mantido igual) */
+    --success-foreground: 0 0% 100%;
+    --success-light: 142 71% 25%; /* Verde mais escuro para fundos de sucesso em dark */
+
+    --warning: 38 92% 50%; /* Laranja para aviso (mantido igual) */
+    --warning-foreground: 0 0% 100%;
+    --warning-light: 38 92% 30%; /* Laranja mais escuro para fundos de aviso em dark */
+
+    --danger: 0 84% 60%; /* Vermelho para erro/rejeitado (mantido igual) */
+    --danger-foreground: 0 0% 100%;
+    --danger-light: 0 84% 30%; /* Vermelho mais escuro para fundos de perigo em dark */
+
+    --info: 199 89% 48%; /* Azul ciano para informações (mantido igual) */
+    --info-foreground: 0 0% 100%;
+    --info-light: 199 89% 28%; /* Azul ciano mais escuro para fundos de informação em dark */
+
+    /* Cores de Utilidade */
+    --border: 217 32% 17%; /* Borda escura */
+    --input: 217 32% 17%; /* Fundo de input escuro */
+    --ring: 212 27% 84%; /* Anel de foco (mantido similar para visibilidade) */
+
+    /* Cores Específicas de Componente: Sidebar (Tema Escuro) */
+    --sidebar-bg: 222 47% 11%; /* Fundo escuro da sidebar */
+    --sidebar-text: 0 0% 100%; /* Texto branco da sidebar */
+    --sidebar-active-item-bg: 220 78% 49%; /* Fundo do item ativo (usa primary) */
+    --sidebar-active-item-text: 0 0% 100%; /* Texto branco do item ativo */
+    --sidebar-hover-bg: 217 32% 17%; /* Fundo de hover mais escuro */
+    --sidebar-hover-text: 0 0% 100%; /* Texto de hover branco */
+    --sidebar-border-color: 217 32% 17%; /* Borda da sidebar */
+    --sidebar-focus-ring: 212 27% 84%; /* Anel de foco da sidebar */
+  }
+}

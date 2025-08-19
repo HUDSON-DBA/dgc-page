@@ -1,0 +1,144 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+  Sistema de Design: Tokens para Análise de Crédito
+
+  Filosofia do Design System:
+  - Cores Globais: Definem o fundo e o texto principal da aplicação.
+  - Cores de Superfície: Aplicadas em elementos como cards e popovers.
+  - Cores Semânticas: Representam a identidade da marca (primária), elementos complementares (secundária),
+    conteúdo em segundo plano (muted) e elementos de destaque (accent). Incluem também uma cor específica para ações destrutivas.
+  - Cores de Status: Fornecem feedback visual (sucesso, aviso, perigo, informação).
+    Cada cor de status possui variantes para texto e fundos mais claros.
+  - Cores de Utilidade: Para bordas, inputs, anéis de foco e raios de borda padrão.
+  - Cores Específicas de Componentes: Para elementos que demandam um tema único, como uma barra lateral (sidebar),
+    garantindo que se diferenciem das cores semânticas gerais quando necessário.
+*/
+
+@layer base {
+  :root {
+    /* Cores Globais (Tema Claro) */
+    --background: 220 15% 97%; /* Fundo cinza claro */
+    --foreground: 220 20% 15%; /* Texto cinza escuro */
+
+    /* Cores de Superfície */
+    --card: 0 0% 100%; /* Fundo branco para cards */
+    --card-foreground: 220 20% 15%; /* Texto cinza escuro em cards */
+    --popover: 0 0% 100%; /* Fundo branco para popovers */
+    --popover-foreground: 220 20% 15%; /* Texto cinza escuro em popovers */
+
+    /* Cores Semânticas */
+    --primary: 220 35% 25%; /* Azul profundo/cinza escuro para branding/ações primárias */
+    --primary-foreground: 0 0% 100%; /* Texto branco em primary */
+    --secondary: 220 15% 90%; /* Cinza claro para elementos secundários */
+    --secondary-foreground: 220 20% 15%; /* Texto cinza escuro em secondary */
+    --muted: 220 15% 94%; /* Fundo muted para elementos menos proeminentes */
+    --muted-foreground: 220 10% 50%; /* Texto cinza médio para elementos muted */
+    --accent: 220 25% 85%; /* Fundo de destaque */
+    --accent-foreground: 220 20% 15%; /* Texto cinza escuro em accent */
+    --destructive: 0 75% 55%; /* Vermelho para ações destrutivas (ex: deletar) */
+    --destructive-foreground: 0 0% 100%; /* Texto branco em destructive */
+
+    /* Cores de Status */
+    --success: 150 80% 35%; /* Verde para sucesso/aprovado */
+    --success-foreground: 0 0% 100%; /* Texto branco em success */
+    --success-light: 150 60% 95%; /* Verde mais claro para fundos de sucesso */
+
+    --warning: 45 90% 50%; /* Âmbar para aviso/pendente */
+    --warning-foreground: 220 20% 15%; /* Texto escuro em warning */
+    --warning-light: 45 70% 95%; /* Âmbar mais claro para fundos de aviso */
+
+    --danger: 0 75% 55%; /* Vermelho para status de erro/perigo */
+    --danger-foreground: 0 0% 100%; /* Texto branco em danger */
+    --danger-light: 0 60% 95%; /* Vermelho mais claro para fundos de perigo */
+
+    --info: 210 85% 60%; /* Azul para mensagens informativas */
+    --info-foreground: 0 0% 100%; /* Texto branco em info */
+    --info-light: 210 70% 95%; /* Azul mais claro para fundos de informação */
+
+    /* Cores de Utilidade */
+    --border: 220 15% 88%; /* Borda cinza claro */
+    --input: 220 15% 94%; /* Fundo de input cinza claro */
+    --ring: 220 35% 25%; /* Cor do anel de foco (geralmente primary) */
+
+    --radius: 0.5rem; /* Raio de borda padrão */
+
+    /* Cores Específicas de Componente: Sidebar (Tema Claro) */
+    --sidebar-bg: 0 0% 98%; /* Fundo muito claro para a sidebar */
+    --sidebar-text: 240 5.3% 26.1%; /* Texto cinza escuro na sidebar */
+    --sidebar-active-item-bg: 240 5.9% 10%; /* Fundo escuro para itens ativos na sidebar */
+    --sidebar-active-item-text: 0 0% 98%; /* Texto claro para itens ativos na sidebar */
+    --sidebar-hover-bg: 240 4.8% 95.9%; /* Fundo mais claro para hover de itens da sidebar */
+    --sidebar-hover-text: 240 5.9% 10%; /* Texto escuro para hover de itens da sidebar */
+    --sidebar-border-color: 220 13% 91%; /* Cor da borda específica da sidebar */
+    --sidebar-focus-ring: 217.2 91.2% 59.8%; /* Anel de foco específico da sidebar */
+  }
+
+  .dark {
+    /* Cores Globais (Tema Escuro) */
+    --background: 222.2 84% 4.9%; /* Fundo muito escuro */
+    --foreground: 210 40% 98%; /* Texto cinza claro */
+
+    /* Cores de Superfície */
+    --card: 222.2 84% 4.9%; /* Fundo escuro para cards */
+    --card-foreground: 210 40% 98%; /* Texto claro em cards */
+    --popover: 222.2 84% 4.9%; /* Fundo escuro para popovers */
+    --popover-foreground: 210 40% 98%; /* Texto claro em popovers */
+
+    /* Cores Semânticas */
+    --primary: 210 40% 98%; /* Cor clara para branding/ações primárias em dark mode */
+    --primary-foreground: 222.2 47.4% 11.2%; /* Texto escuro em primary */
+    --secondary: 217.2 32.6% 17.5%; /* Cinza mais escuro para elementos secundários */
+    --secondary-foreground: 210 40% 98%; /* Texto claro em secondary */
+    --muted: 217.2 32.6% 17.5%; /* Fundo muted escuro */
+    --muted-foreground: 215 20.2% 65.1%; /* Texto cinza médio para elementos muted */
+    --accent: 217.2 32.6% 17.5%; /* Fundo de destaque escuro */
+    --accent-foreground: 210 40% 98%; /* Texto claro em accent */
+    --destructive: 0 62.8% 30.6%; /* Vermelho mais escuro para ações destrutivas */
+    --destructive-foreground: 210 40% 98%; /* Texto claro em destructive */
+
+    /* Cores de Status */
+    --success: 150 80% 35%; /* Verde para sucesso (mantido igual) */
+    --success-foreground: 0 0% 100%;
+    --success-light: 150 60% 95%;
+
+    --warning: 45 90% 50%; /* Âmbar para aviso (mantido igual) */
+    --warning-foreground: 220 20% 15%;
+    --warning-light: 45 70% 95%;
+
+    --danger: 0 75% 55%; /* Vermelho para status de erro/perigo (mantido igual) */
+    --danger-foreground: 0 0% 100%;
+    --danger-light: 0 60% 95%;
+
+    --info: 210 85% 60%; /* Azul para mensagens informativas (mantido igual) */
+    --info-foreground: 0 0% 100%;
+    --info-light: 210 70% 95%;
+
+    /* Cores de Utilidade */
+    --border: 217.2 32.6% 17.5%; /* Borda escura */
+    --input: 217.2 32.6% 17.5%; /* Fundo de input escuro */
+    --ring: 212.7 26.8% 83.9%; /* Cor do anel de foco */
+
+    /* Cores Específicas de Componente: Sidebar (Tema Escuro) */
+    --sidebar-bg: 240 5.9% 10%; /* Fundo escuro para a sidebar */
+    --sidebar-text: 240 4.8% 95.9%; /* Texto claro na sidebar */
+    --sidebar-active-item-bg: 224.3 76.3% 48%; /* Cor mais vibrante para itens ativos na sidebar */
+    --sidebar-active-item-text: 0 0% 100%; /* Texto branco para itens ativos na sidebar */
+    --sidebar-hover-bg: 240 3.7% 15.9%; /* Fundo ligeiramente mais claro para hover de itens da sidebar */
+    --sidebar-hover-text: 240 4.8% 95.9%; /* Texto claro para hover de itens da sidebar */
+    --sidebar-border-color: 240 3.7% 15.9%; /* Borda escura específica da sidebar */
+    --sidebar-focus-ring: 217.2 91.2% 59.8%; /* Anel de foco específico da sidebar */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
